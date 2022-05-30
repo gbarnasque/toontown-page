@@ -1,0 +1,9 @@
+export const BottomFeeder = require('./Bottomfeeder.png');
+export const Bloodsucker = require('./Bloodsucker.png');
+export const DoubleTalker = require('./Doubletalker.png');
+export const AmbulanceChaser = require('./Ambulancechaser.png');
+export const Backstabber = require('./Backstabber.png');
+export const SpinDoctor = require('./Spindoctor.png');
+export const LegalEagle = require('./Legaleagle.png');
+export const BigWig = require('./Bigwig.png');
+export const Chiefjustice = require('./Chiefjustice.png');

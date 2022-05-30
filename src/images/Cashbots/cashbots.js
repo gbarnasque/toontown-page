@@ -1,0 +1,9 @@
+export const ShortChange = require('./Shortchange.png');
+export const PennyPincher = require('./Pennypincher.png');
+export const Tightwad = require('./Tightwad.png');
+export const BeanCounter = require('./Beancounter.png');
+export const NumberCruncher = require('./Numbercruncher.png');
+export const MoneyBags = require('./Moneybags.png');
+export const LoanShark = require('./Loanshark.png');
+export const RobberBaron = require('./Robberbaron.png');
+export const ChiefFinancialOfficer = require('./Chieffinancialofficer.png');

@@ -1,0 +1,27 @@
+.link-card-body {
+    color: #222;
+    text-decoration: none;
+}
+.link-card-body:hover {
+    color: #222;
+    text-decoration: none;
+}
+.card {
+    text-align: center;
+}
+
+.card-botom .btn:first-child {
+    margin-right: 2em;
+}
+.card-botom .btn {
+    font-size: 1.3em;
+}
+
+.card-col {
+    margin-bottom: 2em;
+}
+
+.progress-bar {
+    color: black;
+    font-weight: 600;
+}
