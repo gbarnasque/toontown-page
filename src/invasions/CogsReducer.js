@@ -5,15 +5,15 @@ const INITIAL_STATE = {
     list: []
 };
 
-const convertArrayToObject = (array, key) => {
-    const initialValue = {};
-    return array.reduce((obj, item) => {
-      return {
-        ...obj,
-        [item[key]]: item,
-      };
-    }, initialValue);
-  };
+// const convertArrayToObject = (array, key) => {
+//     const initialValue = {};
+//     return array.reduce((obj, item) => {
+//       return {
+//         ...obj,
+//         [item[key]]: item,
+//       };
+//     }, initialValue);
+//   };
 
 function CogsReducer(state = INITIAL_STATE, action) {
     switch(action.type) {
