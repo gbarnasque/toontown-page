@@ -38,7 +38,7 @@ class CogsInvasions extends React.Component {
     }
 
     formatDate(d) {
-        return `${d.getHours()}:${d.getMinutes()}:${d.getSeconds()}`;
+        return `${d.getHours().toString().padStart(2,'0')}:${d.getMinutes().toString().padStart(2,'0')}:${d.getSeconds().toString().padStart(2,'0')}`;
     }
 
     renderCards() {
@@ -49,7 +49,6 @@ class CogsInvasions extends React.Component {
             const prog = invasion[1].progress.split('/');
             const progress = prog[0] / prog[1] * 100;
             //console.log(progress);
-            console.log(invasion[1]);
             var d = new Date(0);
             d.setUTCSeconds(invasion[1].asOf);
             return (
