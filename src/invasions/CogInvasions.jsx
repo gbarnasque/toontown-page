@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
-import { Row, Col, Card, ProgressBar } from 'react-bootstrap/';
+import { Row, Col, Card, ProgressBar, Button } from 'react-bootstrap/';
 
 import './CogInvasions.css';
 
@@ -12,13 +12,13 @@ import { showSpinner } from '../common/SpinnerActions';
 
 
 class CogsInvasions extends React.Component {
-    // constructor(props) {
-    //     super(props);
-    // }
+    constructor(props) {
+        super(props);
+        this.updateInvasions = this.updateInvasions.bind(this);
+    }
 
     componentDidMount() {
-        this.props.getInvasions();
-        this.props.showSpinner(true);
+        this.updateInvasions();
     }
 
     componentDidUpdate(prevProps) {
@@ -26,9 +26,19 @@ class CogsInvasions extends React.Component {
             this.props.showSpinner(false);
         }
     }
+
+    updateInvasions() {
+        this.props.getInvasions();
+        this.props.showSpinner(true);
+    }
+
     findCog(cogName) {
         //console.log(cogName);
         return getCogInfo(cogName)
+    }
+
+    formatDate(d) {
+        return `${d.getHours()}:${d.getMinutes()}:${d.getSeconds()}`;
     }
 
     renderCards() {
@@ -39,12 +49,15 @@ class CogsInvasions extends React.Component {
             const prog = invasion[1].progress.split('/');
             const progress = prog[0] / prog[1] * 100;
             //console.log(progress);
+            console.log(invasion[1]);
+            var d = new Date(0);
+            d.setUTCSeconds(invasion[1].asOf);
             return (
                 <Col key={ind} className='card-col'>
                     <Card>
                         <Card.Img variant="top" src={cog.info.image} className='cog-image no-select' />
                         <Card.Body>
-                            <Card.Title as='h3' className='text-center'>
+                            <Card.Title as='h4' className='text-center'>
                                 {cog.info.name}
                             </Card.Title>
                             <Card.Text>Disctrict: {invasion[0]}</Card.Text>
@@ -52,7 +65,8 @@ class CogsInvasions extends React.Component {
                         </Card.Body>
                         <Card.Footer className="text-muted">
                             <ProgressBar variant="warning" animated now={progress} label={`${progress.toFixed(0)}%`}/>
-                            {invasion[1].progress}
+                            {invasion[1].progress} <br></br>
+                            Last updated: {this.formatDate(d)}
                         </Card.Footer>
                     </Card>
                 </Col>
@@ -63,6 +77,11 @@ class CogsInvasions extends React.Component {
     render() {
         return (
         <React.Fragment>
+            <Row className='mb-4'>
+                <Col className='text-center'>
+                    <Button variant='primary' onClick={() => this.updateInvasions()} className='btn-update md-auto'>Update Invasions</Button>
+                </Col>
+            </Row>
             <Row xs={1} sm={2} md={3} lg={4}>
                 {this.renderCards()}
             </Row>

@@ -27,7 +27,7 @@
 }
 .cog-image {
     margin: 16px auto 0px;
-    width: 175px;
+    width: 150px;
 }
 
 .cog-type-logo {
@@ -37,4 +37,8 @@
 .no-select {
     pointer-events: none;
     user-select: none;
+}
+
+.btn-update {
+    font-size: 1.25em;
 }
