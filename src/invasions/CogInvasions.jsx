@@ -40,13 +40,13 @@ class CogsInvasions extends React.Component {
             return (
                 <Col key={ind} className='card-col'>
                     <Card>
-                        <Card.Img variant="top" src={cog.info.image} style={{ margin: '16px auto 0px auto' ,maxHeight: '175px', width: '175px'}} />
+                        <Card.Img variant="top" src={cog.info.image} className='cog-image no-select' />
                         <Card.Body>
                             <Card.Title as='h3' className='text-center'>
                                 {cog.info.name}
                             </Card.Title>
                             <Card.Text>Disctrict: {invasion[0]}</Card.Text>
-                            <Card.Img src={cog.type.logo} style={{ margin: '0 auto' ,maxHeight: '40px', width: '40px'}}/> <span>{cog.type.name}</span>
+                            <Card.Img src={cog.type.logo} className='cog-type-logo no-select'/> <span>{cog.type.name}</span>
                         </Card.Body>
                         <Card.Footer className="text-muted">
                             <ProgressBar variant="warning" animated now={progress} label={`${progress.toFixed(0)}%`}/>

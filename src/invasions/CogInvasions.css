@@ -25,3 +25,16 @@
     color: black;
     font-weight: 600;
 }
+.cog-image {
+    margin: 16px auto 0px;
+    width: 175px;
+}
+
+.cog-type-logo {
+    width: 40px;
+}
+
+.no-select {
+    pointer-events: none;
+    user-select: none;
+}
