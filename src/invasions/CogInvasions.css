@@ -1,22 +1,15 @@
-.link-card-body {
-    color: #222;
-    text-decoration: none;
-}
-.link-card-body:hover {
-    color: #222;
-    text-decoration: none;
-}
 .card {
     text-align: center;
 }
-
+.card-text {
+    margin-bottom: .5rem;
+}
 .card-botom .btn:first-child {
     margin-right: 2em;
 }
 .card-botom .btn {
     font-size: 1.3em;
 }
-
 .card-col {
     margin-bottom: 2em;
 }
@@ -29,16 +22,19 @@
     margin: 16px auto 0px;
     width: 150px;
 }
-
 .cog-type-logo {
     width: 40px;
 }
-
 .no-select {
     pointer-events: none;
     user-select: none;
 }
-
 .btn-update {
-    font-size: 1.25em;
+    display: block;
+    margin: 0px auto 24px;
+}
+
+.select-cog-type {
+    max-width: 30%;
+    margin: 0px auto;
 }
