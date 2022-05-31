@@ -34,7 +34,7 @@ class CogsInvasions extends React.Component {
     }
 
     findCog(cogName) {
-        console.log(cogName);
+        //console.log(cogName);
         return getCogInfo(cogName)
     }
 
@@ -45,19 +45,19 @@ class CogsInvasions extends React.Component {
     renderCards() {
         const invasions = this.props.invasions.list || [];
         return invasions.map((invasion, ind) => {
-            const cogName = invasion[1].type.replace(/[\x03]/g, '');
+            const cogName = invasion.info.type.replace(/[\x03]/g, '');
             const cog = this.findCog(cogName);
             if(cog === undefined){
                 toast(`${cogName} not found.`, {toastId: `${cogName}-not-found`, autoClose: 3000});
                 console.log(`${cogName} not found.`);
                 return ;
             }
-            console.log(cog);
-            const prog = invasion[1].progress.split('/');
+            //console.log(cog);
+            const prog = invasion.info.progress.split('/');
             const progress = prog[0] / prog[1] * 100;
             //console.log(progress);
             var d = new Date(0);
-            d.setUTCSeconds(invasion[1].asOf);
+            d.setUTCSeconds(invasion.info.asOf);
             return (
                 <Col key={ind} className='card-col'>
                     <Card>
@@ -66,12 +66,12 @@ class CogsInvasions extends React.Component {
                             <Card.Title as='h4' className='text-center'>
                                 {cog.info.name}
                             </Card.Title>
-                            <Card.Text>Disctrict: {invasion[0]}</Card.Text>
+                            <Card.Text>Disctrict: {invasion.district}</Card.Text>
                             <Card.Img src={cog.type.logo} className='cog-type-logo no-select'/> <span>{cog.type.name}</span>
                         </Card.Body>
                         <Card.Footer className="text-muted">
                             <ProgressBar variant="warning" animated now={progress} label={`${progress.toFixed(0)}%`}/>
-                            {invasion[1].progress} <br></br>
+                            {invasion.info.progress} <br></br>
                             Last updated: {this.formatDate(d)}
                         </Card.Footer>
                     </Card>
