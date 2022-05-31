@@ -9,6 +9,7 @@ import './CogInvasions.css';
 import { getInvasions } from './CogsActions';
 import getCogInfo from '../cogs/Cogs';
 import { showSpinner } from '../common/SpinnerActions';
+import { toast } from 'react-toastify';
 
 
 class CogsInvasions extends React.Component {
@@ -33,7 +34,7 @@ class CogsInvasions extends React.Component {
     }
 
     findCog(cogName) {
-        //console.log(cogName);
+        console.log(cogName);
         return getCogInfo(cogName)
     }
 
@@ -44,8 +45,14 @@ class CogsInvasions extends React.Component {
     renderCards() {
         const invasions = this.props.invasions.list || [];
         return invasions.map((invasion, ind) => {
-            const cog = this.findCog(invasion[1].type.replace(/[\x03]/g, ''));
-            //console.log(cog);
+            const cogName = invasion[1].type.replace(/[\x03]/g, '');
+            const cog = this.findCog(cogName);
+            if(cog === undefined){
+                toast(`${cogName} not found.`, {toastId: `${cogName}-not-found`, autoClose: 3000});
+                console.log(`${cogName} not found.`);
+                return ;
+            }
+            console.log(cog);
             const prog = invasion[1].progress.split('/');
             const progress = prog[0] / prog[1] * 100;
             //console.log(progress);

@@ -45,7 +45,7 @@ const Bossbots = {
             image: Downsizer,
         }, 
         {
-            name: 'HeadHunter',
+            name: 'Head Hunter',
             lowest: 6,
             max: 10,
             image: HeadHunter,

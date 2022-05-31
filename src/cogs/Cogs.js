@@ -39,4 +39,5 @@ export default function getCogInfo(cogName) {
         ret.info = cog;
         return ret;
     }
+    return undefined;
 };
