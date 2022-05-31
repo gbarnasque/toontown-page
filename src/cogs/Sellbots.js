@@ -45,7 +45,7 @@ const Sellbots = {
             image: MoverShaker,
         }, 
         {
-            name: 'Two-face',
+            name: 'Two-Face',
             lowest: 6,
             max: 10,
             image: TwoFace,

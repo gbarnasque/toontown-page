@@ -27,6 +27,7 @@ class CogsInvasions extends React.Component {
         }
     }
     findCog(cogName) {
+        //console.log(cogName);
         return getCogInfo(cogName)
     }
 
@@ -34,9 +35,10 @@ class CogsInvasions extends React.Component {
         const invasions = this.props.invasions.list || [];
         return invasions.map((invasion, ind) => {
             const cog = this.findCog(invasion[1].type.replace(/[\x03]/g, ''));
+            //console.log(cog);
             const prog = invasion[1].progress.split('/');
             const progress = prog[0] / prog[1] * 100;
-            console.log(progress);
+            //console.log(progress);
             return (
                 <Col key={ind} className='card-col'>
                     <Card>

@@ -39,7 +39,7 @@ const Lawbots = {
             image: AmbulanceChaser,
         }, 
         {
-            name: 'Backstabber',
+            name: 'Back Stabber',
             lowest: 5,
             max: 9,
             image: Backstabber,
